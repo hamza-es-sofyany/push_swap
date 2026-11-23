@@ -2,7 +2,8 @@
 
 int has_duplicates(const int *numbers, int size)
 {
-    int i, j;
+    int i;
+    int j;
 
     i = 0;
     while (i < size)
