@@ -11,6 +11,7 @@ void    benchmark_options_init(t_bench_options *options)
     options->bench_enabled = 0;
     options->numbers_start = 1;
     options->requested_strategy = STRATEGY_ADAPTIVE;
+    options->strategy_selected = 0;
 }
 
 
@@ -44,23 +45,27 @@ int     benchmark_options_parse(int argc, char **argv, t_bench_options *options)
 
     if (argc < 1 || !argv || !options)
         return (0);
-
     benchmark_options_init(options);
     i = 1;
     while (i < argc)
     {
         if (ft_strncmp(argv[i], "--bench", 8) == 0)
             options->bench_enabled = 1;
-        else if (!parse_strategy_option(argv[i], &options->requested_strategy))
+        else if (parse_strategy_option(argv[i], &options->requested_strategy))
+        {
+            options->strategy_selected++;
+            if (options->strategy_selected > 1)
+                return (0);
+        }
+        else
         {
             options->numbers_start = i;
             break;
         }
-        
         i++;
     }
+
     if (i == argc)
-        options->numbers_start = argc;
-        
+        options->numbers_start = argc;   
     return (1);
 }

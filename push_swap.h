@@ -73,6 +73,7 @@ typedef struct s_bench_options
     int         bench_enabled;
     t_strategy  requested_strategy;
     int         numbers_start;
+    int strategy_selected;
 }   t_bench_options;
 
 /* Parsing */
