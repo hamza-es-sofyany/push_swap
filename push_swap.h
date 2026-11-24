@@ -2,6 +2,7 @@
 # define PUSH_SWAP_H
 
 # include "libft/libft.h"
+# include "ft_printf/ft_printf.h"
 #include <limits.h>
 #include <stdlib.h>
 /* Stack structures */
@@ -75,7 +76,8 @@ void    rrb(t_stack *b);
 void    rrr(t_stack *a, t_stack *b);
 
 /* Benchmark */
-
+void    benchmark_report(double disorder, t_strategy strategy,
+            const t_op_count *count);
 void    operation_count_init(t_op_count *count);
 void    operation_count_add(t_op_count *count, t_operation op);
 
