@@ -96,6 +96,7 @@ void    stack_clear(t_stack *stack);
 void    sa(t_stack *a);
 void    sb(t_stack *b);
 void    ss(t_stack *a, t_stack *b);
+void    operation_output(t_operation op);
 
 /* Stack operations: Push */
 
@@ -142,5 +143,12 @@ void    benchmark_report(double disorder, t_strategy strategy,
 void    benchmark_options_init(t_bench_options *options);
 int     benchmark_options_parse(int argc, char **argv,
             t_bench_options *options);
+
+/* Sorting strategies */
+
+void    strategy_execute(t_bench *bench, t_stack *a, t_stack *b);
+void    simple_sort(t_bench *bench, t_stack *a, t_stack *b);
+void    medium_sort(t_bench *bench, t_stack *a, t_stack *b);
+void    complex_sort(t_bench *bench, t_stack *a, t_stack *b);
 
 #endif

@@ -10,9 +10,9 @@ void   benchmark_init(t_bench *bench, const t_stack *a, t_strategy requested)
     bench->strategy = select_strategy(requested, bench->disorder);
     operation_count_init(&bench->count);
 }
-void benchmark_execute(t_bench *bencha, t_stack *a, t_stack *b, t_operation op)
+void benchmark_execute(t_bench *bench, t_stack *a, t_stack *b, t_operation op)
 {
-    if (!bencha || !a || !b || op < OP_SA || op >= OP_COUNT)
+    if (!bench || !a || !b || op < OP_SA || op >= OP_COUNT)
         return ;
     if (op == OP_SA) sa(a);
     else if (op == OP_SB) sb(b);
@@ -25,7 +25,8 @@ void benchmark_execute(t_bench *bencha, t_stack *a, t_stack *b, t_operation op)
     else if (op == OP_RRA) rra(a);
     else if (op == OP_RRB) rrb(b);
     else if (op == OP_RRR) rrr(a, b);
-    operation_count_add(&bencha->count, op);
+    operation_output(op);
+    operation_count_add(&bench->count, op);
 }
 
 void benchmark_finish(const t_bench *bench)
