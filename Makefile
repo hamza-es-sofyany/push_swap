@@ -15,12 +15,9 @@ SRCS = main.c \
 	operations/rotate.c \
 	operations/reverse_rotate.c \
 	operations/operation_output.c \
-	benchmark/benchmark.c \
-	benchmark/benchmark_options.c \
-	benchmark/benchmark_report.c \
-	benchmark/disorder.c \
-	benchmark/operation_count.c \
-	benchmark/strategy_select.c \
+    benchmark_new/benchmark.c \
+    benchmark_new/benchmark_options.c \
+    benchmark_new/benchmark_report.c \
 	sorting/simple_sort.c \
 	sorting/medium_sort.c \
 	sorting/complex_sort.c \

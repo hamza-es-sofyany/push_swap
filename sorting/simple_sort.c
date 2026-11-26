@@ -37,7 +37,7 @@ static void	move_min_to_top(t_bench *bench, t_stack *a, t_stack *b)
 	{
 		while (i < min_pos)
 		{
-			benchmark_execute(bench, a, b, OP_RA);
+			benchmark_execute(bench, a, b, op_ra);
 			i++;
 		}
 	}
@@ -45,11 +45,11 @@ static void	move_min_to_top(t_bench *bench, t_stack *a, t_stack *b)
 	{
 		while (i < a->size - min_pos)
 		{
-			benchmark_execute(bench, a, b, OP_RRA);
+			benchmark_execute(bench, a, b, op_rra);
 			i++;
 		}
 	}
-	benchmark_execute(bench, a, b, OP_PB);
+	benchmark_execute(bench, a, b, op_pb);
 }
 
 void	simple_sort(t_bench *bench, t_stack *a, t_stack *b)
@@ -59,5 +59,5 @@ void	simple_sort(t_bench *bench, t_stack *a, t_stack *b)
 	while (a->size > 0)
 		move_min_to_top(bench, a, b);
 	while (b->size > 0)
-		benchmark_execute(bench, a, b, OP_PA);
+		benchmark_execute(bench, a, b, op_pa);
 }
